@@ -4,16 +4,16 @@
 
 ## 📌 Project Description
 
-โปรเจกต์นี้เป็นเกมต่อสู้แบบ Turn-Based (Text-based CLI) ที่ผู้เล่นสามารถเลือกคำสั่งในแต่ละเทิร์น ได้แก่ Attack, Defend และ Heal เพื่อต่อสู้กับศัตรู (Enemy) โดยระบบจะทำงานจนกว่าฝ่ายใดฝ่ายหนึ่งจะมี HP = 0
+โปรเจกต์นี้เป็นเกมต่อสู้แบบ Turn-Based (Text-based CLI) ที่ผู้เล่นสามารถเลือกคำสั่งในแต่ละเทิร์น เช่น Attack, Defend และ Heal เพื่อต่อสู้กับศัตรู (Enemy) โดยระบบจะทำงานจนกว่าฝ่ายใดฝ่ายหนึ่งจะมี HP = 0
 
 ---
 
 ## 🎯 Features
 
 * ⚔️ Attack → สุ่ม damage
+* 🍀 Punch of Luck → สุ่มดาเมจ
 * 🛡️ Defend → ลด damage ที่ได้รับ
 * 💊 Heal → ฟื้นฟู HP (ไม่เกิน max)
-* 🤖 Enemy AI → ตัดสินใจเอง (attack / heal)
 * 🔁 Loop gameplay → เล่นต่อเนื่อง
 * ❗ Input Validation → กัน input ผิด
 
@@ -22,7 +22,8 @@
 ## ⚙️ How to Run
 
 ```bash
-python main.py
+run in the last code cell
+in code cell have main()  
 ```
 
 ---
@@ -49,12 +50,12 @@ Start
 ## 🗂️ Backlog
 
 ```md
-- [ ] สร้างระบบ attack
-- [ ] สร้างระบบ defend
-- [ ] สร้างระบบ heal
-- [ ] เพิ่ม input validation
-- [ ] เพิ่ม enemy AI
-- [ ] ปรับ UX (input เป็นตัวเลข)
+- [x] สร้างระบบ attack
+- [x] สร้างระบบ defend
+- [x] สร้างระบบ heal
+- [x] เพิ่ม input validation
+- [x] เพิ่ม enemy AI
+- [x] ปรับ UX (input เป็นตัวเลข)
 ```
 
 ## 🚀 In Progress
@@ -81,7 +82,6 @@ Start
 - LO2: จัดการข้อมูล HP และ state ของผู้เล่น
 - LO3: ใช้ while loop และ if/elif/else ควบคุมเกม
 - LO4: มี input validation ป้องกัน error
-- LO5: มี CHANGELOG และ LEARNINGLOG
 ```
 
 ---
@@ -124,14 +124,17 @@ Individual Score: 9/10
 # 🧪 Example Output
 
 ```text
-Player HP: 100 | Enemy HP: 100
-Choose action:
-1 = Attack
-2 = Defend
-3 = Heal
+--- Turn 1 ---
+❤️ Player HP: 100 | 👾 Enemy HP: 100
 
-You attack and deal 15 damage!
-Enemy HP: 85
+Choose action:
+[1] Attack ⚔️
+[2] Punch of Luck 🍀
+[3] Heal 💊
+[4] Defend 🛡️
+
+⚔️ You used punchofluck and deal 46 damage!
+👾 Enemy attacks and deals 27 damage!
 ```
 
 ---
