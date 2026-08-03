@@ -1,0 +1,68 @@
+ขั้นตอนการทำงานของระบบ (Turn-Based Battle Game Workflow)
+
+ภาพรวมการทำงาน
+ระบบเป็นเกมแบบ Turn-Based โดยจะทำงานเป็นลูป (Loop) จนกว่าผู้เล่นหรือศัตรูจะมี HP = 0
+
+Step-by-Step Workflow
+1. เริ่มต้นโปรแกรม (Start)
+แสดงข้อความต้อนรับ (Welcome Message)
+กำหนดค่าเริ่มต้น:
+Player HP = 100
+Enemy HP = 100
+สร้างรายการคำสั่ง (actions):
+["attack", "defend", "heal"]
+
+2. เข้าสู่ Game Loop
+ใช้ while loop:
+เงื่อนไข: player_hp > 0 AND enemy_hp > 0
+
+3. แสดงสถานะ (Display Status)
+แสดง HP ของ Player และ Enemy
+
+4. รับคำสั่งจากผู้เล่น (Player Input)
+รับ input เช่น:
+attack
+defend
+heal
+
+5. ตรวจสอบความถูกต้องของ Input (Validation)
+ถ้า input ไม่อยู่ใน list:
+แสดง error
+กลับไปเริ่ม loop ใหม่ (continue)
+
+6. ประมวลผล Action ของ Player
+กรณี Attack
+สุ่ม damage (10–20)
+ลด HP ของศัตรู
+กรณี Defend
+ตั้งสถานะป้องกัน (ใช้ลด damage เทิร์นถัดไป)
+กรณี Heal
+เพิ่ม HP (เช่น +15)
+จำกัดไม่ให้เกิน 100
+
+7. ตรวจสอบ Enemy ตายหรือไม่
+ถ้า enemy_hp <= 0
+แสดง “You Win”
+จบเกม (break)
+
+8. เทิร์นของศัตรู (Enemy Turn)
+สุ่ม action:
+attack หรือ heal
+Enemy Attack
+สุ่ม damage
+ถ้า player ใช้ defend:
+ลด damage ลง (เช่น /2)
+ลด HP ของ player
+Enemy Heal
+เพิ่ม HP (ไม่เกิน 100)
+
+9. ตรวจสอบ Player ตายหรือไม่
+ถ้า player_hp <= 0
+แสดง “You Lose”
+จบเกม
+
+10. วนลูปต่อ
+กลับไป Step 3 จนกว่าจะมีผู้ชนะ
+
+11. จบโปรแกรม (End Game)
+แสดงข้อความ “Game Over”
