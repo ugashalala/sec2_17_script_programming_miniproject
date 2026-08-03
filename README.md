@@ -1,4 +1,4 @@
-# ⚔️ Turn-Based Battle Game (Python CLI)
+# ⚔️ Turn-Based Battle Game
 
 ---
 
@@ -22,13 +22,13 @@
 ## ⚙️ How to Run
 
 ```bash
-run in the last code cell
-in code cell have main()  
+run code cell ตัวสุดท้ายเพื่อเป็นการรันเกม
+แต่ในการ run ครั้งแรกควร run code cell ทั้งหมดที่มีก่อนเพื่อไม่ให้ตัวเกมเกิดการ error 
 ```
 
 ---
 
-## 🧠 Workflow
+## Workflow
 
 ```text
 Start 
@@ -45,37 +45,39 @@ Start
 
 ---
 
-# 📊 Kanban Backlog & Run
+# Kanban Backlog & Run
 
 ## 🗂️ Backlog
 
 ```md
-- [x] สร้างระบบ attack
-- [x] สร้างระบบ defend
-- [x] สร้างระบบ heal
-- [x] เพิ่ม input validation
-- [x] เพิ่ม enemy AI
-- [x] ปรับ UX (input เป็นตัวเลข)
+- [ ] เพิ่ม enemy AI
+- [ ] เพิ่มระบบ item
+- [ ] เพิ่ม character class
 ```
 
 ## 🚀 In Progress
 
 ```md
-- [x] ระบบ combat พื้นฐาน
-- [x] ระบบ loop เกม
+- [ ] ปรับปรุง balancing damage
+- [ ] เพิ่ม test case
 ```
 
 ## ✅ Done
 
 ```md
 - [x] ระบบ battle ทำงานครบ
-- [x] เกมรันได้จริง
-- [x] ไม่มี runtime error
+- [x] สร้างระบบ attack
+- [x] สร้างระบบ defend
+- [x] สร้างระบบ heal
+- [x] เพิ่ม input validation
+- [x] ปรับ UX (input เป็นตัวเลข)
+- [x] ระบบ loop เกม
+- [x] ทดสอบการเล่นเกม
 ```
 
 ---
 
-# 🎯 Group Learning Outcomes
+# Learning Outcomes
 
 ```md
 - LO1: ใช้ dictionary ในการจัดการ action และ skill
@@ -86,37 +88,45 @@ Start
 
 ---
 
-# 🧾 Group Grading Rubric (Self Reflection)
+# Group Grading Rubric
 
-## 🔹 Technical Rigor & Accuracy
+## 1. Achievement of Group Objectives (30%)
 
-```text
-โค้ดทำงานถูกต้อง ใช้ dictionary + control flow อย่างเหมาะสม
-มีการป้องกัน error เช่น invalid input
-```
+โครงงานสามารถสร้างเกม Turn-Based Battle ได้ตามเป้าหมายที่กำหนด
+โดยมีระบบต่อสู้หลัก ได้แก่ Attack, Defend, Heal และ Enemy
 
-## 🔹 Architectural Usability
+## 2. Content Consistency and Work Standard (30%)
 
-```text
-ระบบ menu ใช้งานง่าย เล่นต่อเนื่องได้ และจบเกมได้ถูกต้อง
-```
+โครงสร้างโปรแกรมมีการแบ่งส่วนการทำงานชัดเจน
+มีการใช้ Python fundamentals เช่น Dictionary, Loop, Conditional Statement
 
-## 🔹 Reflective Process Ownership
+## 3. Quantity, Quality and Work Process (30%)
 
-```text
-มีการบันทึกขั้นตอนการพัฒนา ปัญหา และวิธีแก้ใน LEARNINGLOG
-```
+มีการพัฒนาโปรเจกต์เป็นลำดับขั้นตอนผ่าน Kanban Backlog
+มีการบันทึกการเปลี่ยนแปลงผ่าน CHANGELOG
+และมีการทดสอบระบบก่อนนำเสนอ
+
+## 4. Overall Group Work (10%)
+
+ติดต่อสมาชิกกลุ่มค่อนข้างยาก
 
 ---
 
 # 👥 Group Assessments
 
 ```md
-Group Score: 9/10
-เหตุผล: ระบบครบ มี logic ชัดเจน และพัฒนาเป็นขั้นตอน
+1. อัครพงษ์ ศรีโฉม 653380220-8 
+self : 7/10
+group : -/10
 
-Individual Score: 9/10
-เหตุผล: มีส่วนร่วมทั้ง coding, design และ debugging
+
+2. นายภาสุ สมมีย์ 683380435-0
+self : -/10
+group : -/10 
+
+3. นายณัฐพัชร์ คงสวัสดิ์ 683380415-6
+self : -/10
+group : -/10
 ```
 
 ---
