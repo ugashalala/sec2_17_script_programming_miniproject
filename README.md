@@ -36,10 +36,11 @@ Start
 → Loop 
 → Player Input 
 → Validate 
-→ Execute Action 
+→ Execute Action
+→ Check Enemy HP 
 → Enemy Turn 
-→ Check HP 
-→ Repeat 
+→ Update HP 
+→ Check Winner 
 → End
 ```
 
