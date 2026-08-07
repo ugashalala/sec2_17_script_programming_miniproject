@@ -58,7 +58,7 @@ Enemy มีระบบตัดสินใจแบบง่าย (Rule-base
 
 ---
 
-# 👥 Group Assessments
+# Group Assessments
 
 |ผู้ประเมิน|ประเมิน อัครพงษ์|ประเมิน ภาสุ|ประเมิน ณัฐพัชร์|
 |---|---|---|---|
@@ -76,7 +76,7 @@ run code cell ตัวสุดท้ายเพื่อเป็นการ
 
 ---
 
-# 🧪 Example Output
+# Example Output
 
 ```text
 --- Turn 1 ---
