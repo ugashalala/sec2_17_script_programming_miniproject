@@ -1,358 +1,177 @@
-# 📚 LEARNINGLOG
+# บันทึกการเรียนรู้ — Turn-Based Battle Game
 
-## Project: Turn-Based Battle Game (Python CLI)
+**โปรเจกต์:** Turn-Based Battle Game (CLI)
+**กระบวนการทำงาน:** Kanban, จำกัด WIP = 1, ทำทีละการ์ดต่อรอบ
 
----
-
-## 1. Project Overview
-
-Turn-Based Battle Game เป็นเกมต่อสู้แบบ Text-based ที่พัฒนาด้วยภาษา Python โดยผู้เล่นสามารถเลือก Action ในแต่ละ Turn ได้แก่ Attack, Punch of Luck, Heal และ Defend เพื่อแข่งขันกับ Enemy ที่มีระบบตัดสินใจแบบ Simple AI
-
-เป้าหมายของโปรเจกต์คือการนำความรู้พื้นฐาน Python มาประยุกต์ใช้กับการสร้างโปรแกรมที่มี Interaction กับผู้ใช้ โดยเน้นเรื่อง:
-
-- Data Structure
-- Control Flow
-- Loop
-- Input Validation
-- Problem Solving
+บันทึกนี้รวบรวมคำสั่ง AI ที่ใช้ การตัดสินใจทางเทคนิค และปัญหาที่พบระหว่างพัฒนาเกมต่อสู้แบบ Turn-based
 
 ---
 
-# 📝 Development Learning Process
+## บันทึกรอบที่ 1: เริ่มต้นโปรเจกต์
+
+**เป้าหมายผลการเรียนรู้:** LO5 (Process Documentation)
+
+**คำสั่ง AI:** "ช่วยออกแบบเกมแนวturn base battle game ง่ายๆให้หน่อย โดยเป็นการคุมผ่านCLI inputเป็นtextเป็นหลัก"
+
+**การตัดสินใจ:**
+
+* เลือกทำ **Turn-Based Battle Game** เพราะเข้าใจง่ายและใช้ Control Flow ได้ชัด
+* วางโครงสร้างพื้นฐาน `main.py`
+
+**อุปสรรค:** ยังไม่มี (เริ่มต้นโปรเจกต์)
 
 ---
 
-# 1. Creating Basic Battle System
+## บันทึกรอบที่ 2: Game Loop และ Control Flow
 
-## Objective
+**เป้าหมาย:** LO3 (Control Flow)
 
-สร้างระบบการต่อสู้พื้นฐานระหว่าง Player และ Enemy
+**การตัดสินใจ:**
 
-## Implementation
+* ใช้ `while` เป็น game loop
+* ใช้ `if/elif/else` ควบคุม action
+* แยก Player / Enemy turn
 
-สิ่งที่พัฒนา:
+**อุปสรรค:**
 
-- Player HP system
-- Enemy HP system
-- Turn-based game loop
-- Basic attack system
-- Random damage system
-
-ตัวอย่าง:
-
-```python
-while player_hp > 0 and enemy_hp > 0:
-```
-
-## Problem Encountered
-
-ไม่เข้าใจวิธีควบคุมการทำงานของเกม เช่น
-
-- เกมควรหยุดเมื่อไหร่
-- จะตรวจสอบว่าใครชนะอย่างไร
-
-## Solution
-
-ใช้ while loop ร่วมกับ condition เพื่อตรวจสอบ HP ของทั้งสองฝ่าย
-
-## Learning
-
-- เข้าใจการใช้ loop ในการควบคุม process ที่ทำซ้ำ
-- เข้าใจการใช้ condition เพื่อควบคุม flow ของโปรแกรม
+* ยังจัด flow ไม่ชัด → ปรับให้เป็น Player → Enemy → Check win
 
 ---
 
-# 2. Designing Skill System
+## บันทึกรอบที่ 3: ระบบ Attack และ Random
 
-## Objective
+**เป้าหมาย:** LO2 (Collection + Logic)
+**คำสั่ง AI:** "ทำระบบ attack ที่ทำให้เกมดูมีความตื่นเต้นมากกว่านี้หน่อย"
 
-เพิ่ม Action ให้ผู้เล่นสามารถเลือกคำสั่งได้หลายแบบ
+**การตัดสินใจ:**
 
-Skill ที่เพิ่ม:
+* ใช้ `random.randint()` สุ่ม damage
+* HP ลดตาม damage
 
-- Attack
-- Punch of Luck
-- Heal
-- Defend
+**อุปสรรค:**
 
-
-## Problem Encountered
-
-เมื่อใช้ if/elif จำนวนมาก โค้ดเริ่มมีความซับซ้อน
-
-ตัวอย่าง:
-
-```python
-if action == "attack":
-    ...
-elif action == "heal":
-    ...
-elif action == "defend":
-    ...
-```
-
-เมื่อเพิ่ม skill ใหม่จะต้องแก้หลายจุด
-
-
-## Solution
-
-เปลี่ยนมาใช้ Dictionary เพื่อจัดเก็บข้อมูล Skill
-
-
-```python
-skills = {
-    "1": {
-        "name": "attack",
-        "type": "damage",
-        "value": (10,20)
-    }
-}
-```
-
-
-## Learning
-
-- เรียนรู้การใช้ Dictionary เป็น Data Structure
-- ลดความซ้ำซ้อนของ Code
-- ทำให้สามารถเพิ่ม Feature ได้ง่ายขึ้น
+* ❌ `NameError: random is not defined`
+  → แก้โดยเพิ่ม `import random`
 
 ---
 
-# 3. Input Validation
+## บันทึกรอบที่ 4: Input Validation
 
-## Objective
+**เป้าหมาย:** LO4 (Defensive Programming)
+**คำสั่ง AI:** "ให้เลือก action เป็นตัวเลข"
 
-ป้องกัน User Input ที่ไม่ถูกต้อง
+**การตัดสินใจ:**
 
+* ใช้ dictionary เก็บ skill
+* ตรวจสอบ input ด้วย `if choice in skills`
 
-## Problem Encountered
+**อุปสรรค:**
 
-ผู้ใช้อาจกรอกค่าที่ไม่มีอยู่ในระบบ
-
-
-Example:
-
-```
-Enter number: 5
-```
-
-
-## Solution
-
-เพิ่มระบบตรวจสอบ Input
-
-
-```python
-if choice in skills:
-    return choice
-else:
-    print("Invalid input")
-```
-
-
-## Learning
-
-- เข้าใจ Defensive Programming
-- สามารถจัดการ Error จาก User Input
-- ทำให้โปรแกรมไม่ Crash
+* user ใส่ค่าผิด → โปรแกรมพัง
+  → แก้ด้วย loop + validate input
 
 ---
 
-# 4. Random Damage System
+## บันทึกรอบที่ 5: Skill System (Dictionary)
 
-## Objective
+**เป้าหมาย:** LO1 (Data Structure)
+**คำสั่ง AI:** "ใช้ dictionary ในการเก็บskillจะง่ายกว่ามั้ย"
 
-ทำให้การต่อสู้มีความหลากหลายมากขึ้น
+**การตัดสินใจ:**
 
+* เปลี่ยนจาก if เยอะ ๆ → ใช้ `skills = {}`
+* เก็บ type และ value ของ skill
 
-## Implementation
+**ผลลัพธ์:**
 
-ใช้ random module ในการสุ่ม Damage
-
-
-```python
-damage = random.randint(10,20)
-```
-
-
-## Problem Encountered
-
-การโจมตีแบบ Fixed Damage ทำให้เกมไม่มีความแตกต่างในแต่ละรอบ
-
-
-## Solution
-
-เพิ่ม Random Damage เพื่อสร้างความไม่แน่นอน
-
-
-## Learning
-
-- เรียนรู้การ Import และใช้งาน Module
-- เข้าใจการสร้าง Game Mechanic ด้วย Random
+* โค้ดสั้นลง
+* เพิ่ม skill ได้ง่าย
 
 ---
 
-# 5. Creating Enemy AI
+## บันทึกรอบที่ 6: Defend และ Status System
 
-## Objective
+**เป้าหมาย:** LO1 + LO2
+**คำสั่ง AI:** "ทำให้เกมซับซ้อนขึ้น"
 
-สร้างระบบให้ Enemy สามารถเลือก Action ได้เอง
+**การตัดสินใจ:**
 
+* ใช้ `player_status = {"defend": False}`
+* ลด damage ถ้า defend
 
-## Problem Encountered
+**อุปสรรค:**
 
-การสุ่ม Action อย่างเดียวทำให้ Enemy ไม่มี Logic
-
-
-## Solution
-
-เพิ่ม Decision Making
-
-
-```python
-if enemy_hp < 30:
-    enemy_action = "heal"
-else:
-    enemy_action = random.choice(
-        ["attack","attack","heal"]
-    )
-```
-
-
-## Learning
-
-- เข้าใจพื้นฐานของ AI Decision Logic
-- ใช้ Conditional Statement ในการสร้างพฤติกรรมของตัวละคร
+* ลืม reset defend → bug
+  → แก้โดย reset หลังใช้
 
 ---
 
-# 6. Status Management System
+## บันทึกรอบที่ 7: Enemy AI
 
-## Objective
+**เป้าหมาย:** LO3 (Logic Design)
+**คำสั่ง AI:** "เพิ่ม AI ให้ศัตรู"
 
-เพิ่มระบบ Defend ที่ส่งผลต่อ Damage ที่ได้รับ
+**การตัดสินใจ:**
 
+* ถ้า HP ต่ำ → heal
+* ถ้าปกติ → random attack/heal
 
-## Problem Encountered
+**อุปสรรค:**
 
-จำเป็นต้องเก็บสถานะของ Player ระหว่าง Turn
-
-
-## Solution
-
-สร้าง Status Dictionary
-
-
-```python
-player_status = {
-    "defend": False
-}
-```
-
-
-เมื่อใช้ Defend:
-
-```python
-player_status["defend"] = True
-```
-
-
-## Learning
-
-- เข้าใจการจัดการ State ของโปรแกรม
-- เข้าใจการเก็บข้อมูลที่เปลี่ยนแปลงระหว่าง Runtime
+* AI เดาง่าย → เพิ่ม randomness
 
 ---
 
-# 7. Debugging Process
+## บันทึกรอบที่ 8: Refactor + Clean Code
 
-## Problem 1: random is not defined
+**เป้าหมาย:** LO5 (Process + Clean Code)
 
+**การตัดสินใจ:**
 
-Error:
+* แยกฟังก์ชัน `get_player_action()`
+* จัด format output ให้อ่านง่าย
+* เพิ่ม emoji เพื่อ UX
 
-```
-NameError: name 'random' is not defined
-```
+**ผลลัพธ์:**
 
-
-Cause:
-
-ไม่ได้ Import random module
-
-
-Solution:
-
-
-```python
-import random
-```
-
+* โค้ดอ่านง่ายขึ้น
+* UX ดีขึ้น
 
 ---
 
-## Problem 2: Code Structure Too Complex
+## สรุปผลการเรียนรู้ (Learning Outcomes)
 
-
-Cause:
-
-จำนวน if/elif เพิ่มขึ้นเมื่อเพิ่ม Feature
-
-
-Solution:
-
-ใช้ Dictionary-based Design
-
-
-Result:
-
-- Code อ่านง่ายขึ้น
-- เพิ่ม Skill ใหม่ได้ง่าย
-
+1. **LO1:** ใช้ Dictionary จัดการ skill และ status ได้จริง
+2. **LO2:** ใช้ random, variable และ state control
+3. **LO3:** เข้าใจ while loop + if/elif/else แบบใช้งานจริง
+4. **LO4:** ป้องกัน error จาก user input ได้
+5. **LO5:** มีการบันทึก process ครบทุกขั้นตอน
 
 ---
 
-## Problem 3: Invalid User Input
+## Reflection (สิ่งที่ได้เรียนรู้จริง)
 
-
-Cause:
-
-ไม่มีการตรวจสอบ Input
-
-
-Solution:
-
-เพิ่ม Input Validation Loop
-
-
-Result:
-
-โปรแกรมสามารถรับมือกับข้อมูลผิดได้
+* การใช้ **Dictionary ทำให้โค้ด scalable มาก**
+* Control Flow สำคัญมากในเกม
+* การ debug (เช่น random error) คือ skill สำคัญ
+* การทำ Kanban ช่วยให้ไม่หลุดโฟกัส
 
 ---
 
-# 🎯 Final Reflection
+## ปัญหาที่เจอและวิธีแก้
 
-จากการทำโปรเจกต์ Turn-Based Battle Game ได้เรียนรู้:
-
-- การใช้ Python Data Structure โดยเฉพาะ Dictionary
-- การออกแบบ Control Flow ด้วย if/elif/else
-- การใช้ Loop เพื่อสร้าง Interactive Program
-- การจัดการ User Input
-- การ Debug และแก้ไขปัญหา
-- การออกแบบโปรแกรมให้สามารถขยายต่อได้
-
-
-## Group Learning Outcome Mapping
-
-| Learning Outcome | Implementation |
-|---|---|
-| LO1 Data Structure | ใช้ Dictionary จัดการ Skill และ Status |
-| LO2 Collection Manipulation | จัดการข้อมูล Player, Enemy และ Skill |
-| LO3 Control Flow | ใช้ Loop และ Conditional Statement |
-| LO4 Defensive Programming | Input Validation |
-| LO5 Process Documentation | บันทึก Learning Process |
+| ปัญหา           | วิธีแก้       |
+| --------------- | ------------- |
+| random ไม่ทำงาน | import random |
+| input ผิด       | validate      |
+| defend bug      | reset status  |
+| โค้ดยาว         | refactor      |
 
 ---
 
-# End of Learning Log
+## แนวทางพัฒนาต่อ
+
+* เพิ่ม critical hit
+* เพิ่มหลาย enemy
+* เพิ่ม level system
+* ทำเป็น GUI (pygame)
